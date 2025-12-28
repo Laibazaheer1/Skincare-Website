@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlowCare | Skincare Website</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+ <!-- ✅ Font Awesome CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body >
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold" href="#">
+      <img src="images/log-removebg-preview.png" alt="Logo" class="logo"> GlowCare
+    </a>
+
+    <!-- Navbar Toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Links + Search + Profile -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Search Bar -->
+      <form class="d-flex me-3">
+        <input id="searchInput" class="form-control search-bar" type="search" placeholder="Search products..." aria-label="Search">
+      </form>
+
+      <!-- Profile Dropdown -->
+      <div class="dropdown me-3">
+        <a class="btn btn-profile dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+          <i class="bi bi-person-circle"></i> Profile
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+         <li><a class="dropdown-item btn-signup" href="sigup.html">Sign Up</a></li>
+<li><a class="dropdown-item btn-login" href="login.html">Login</a></li>
+
+        </ul>
+      </div>
+    </div>
+
+    <!-- Basket Icon (outside collapse, right side) -->
+    <a href="#" id="cartIcon" class="btn btn-outline-dark position-relative ms-auto">
+      <i class="fas fa-shopping-basket"></i>
+      <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge bg-danger">0</span>
+    </a>
+  </div>
+</nav>
+
+  <!-- Back to Top Button -->
+<button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- Hero Section -->
+<section class="hero container text-center position-relative">
+  <!-- Background Image -->
+  <img src="images/bg.jpg" alt="Glowing Nature" class="hero-bg">
+
+  <!-- Content -->
+  <div class="hero-content position-absolute top-50 start-50 translate-middle">
+  <h1>Natural Skincare for Glowing Skin</h1>
+  <p><span id="typingText"></span></p>
+  <a href="product.html" class="btn btn-custom mt-3">Shop Now</a>
+</div>
+</section>
+
+  <!-- Products Section -->
+  <section class="container my-5">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Our Bestsellers</h2>
+      <p class="text-muted">Handpicked skincare essentials loved by our customers</p>
+    </div>
+    <div class="row g-4">
+  <!-- Product 1 -->
+  <div class="col-md-4">
+    <div class="card p-3">
+      <a href="hydrating.html">
+        <img src="images/hydrating.jpg" class="card-img-top rounded" alt="Moisturizer">
+      </a>
+      <div class="card-body text-center">
+        <h5 class="card-title">Hydrating Moisturizer</h5>
+        <p class="card-text text-muted">$25</p>
+        <a href="#" 
+           class="btn btn-custom buy-btn"
+           data-name="Hydrating Moisturizer"
+           data-price="25"
+           data-image="images/hydrating.jpg">Buy Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product 2 -->
+  <div class="col-md-4">
+    <div class="card p-3">
+      <a href="serum.html">
+        <img src="images/serum.jpg" class="card-img-top rounded" alt="Serum">
+      </a>
+      <div class="card-body text-center">
+        <h5 class="card-title">Brightening Serum</h5>
+        <p class="card-text text-muted">$30</p>
+        <a href="#"
+           class="btn btn-custom buy-btn"
+           data-name="Brightening Serum"
+           data-price="30"
+           data-image="images/serum.jpg">Buy Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product 3 -->
+  <div class="col-md-4">
+    <div class="card p-3">
+      <a href="cleanser.html">
+        <img src="images/cleanser.jpg" class="card-img-top rounded" alt="Cleanser">
+      </a>
+      <div class="card-body text-center">
+        <h5 class="card-title">Gentle Cleanser</h5>
+        <p class="card-text text-muted">$20</p>
+        <a href="#"
+           class="btn btn-custom buy-btn"
+           data-name="Gentle Cleanser"
+           data-price="20"
+           data-image="images/cleanser.jpg">Buy Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product 4 -->
+  <div class="col-md-4">
+    <div class="card p-3">
+      <a href="facemask.html">
+        <img src="images/facemask.jpg" class="card-img-top rounded" alt="Face Mask">
+      </a>
+      <div class="card-body text-center">
+        <h5 class="card-title">Revitalizing Face Mask</h5>
+        <p class="card-text text-muted">$22</p>
+        <a href="#"
+           class="btn btn-custom buy-btn"
+           data-name="Revitalizing Face Mask"
+           data-price="22"
+           data-image="images/facemask.jpg">Buy Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product 5 -->
+  <div class="col-md-4">
+    <div class="card p-3">
+      <a href="toner.html">
+        <img src="images/toner.jpg" class="card-img-top rounded" alt="Toner">
+      </a>
+      <div class="card-body text-center">
+        <h5 class="card-title">Refreshing Toner</h5>
+        <p class="card-text text-muted">$28</p>
+        <a href="#"
+           class="btn btn-custom buy-btn"
+           data-name="Refreshing Toner"
+           data-price="28"
+           data-image="images/toner.jpg">Buy Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product 6 -->
+  <div class="col-md-4">
+    <div class="card p-3">
+      <a href="sunscreen.html">
+        <img src="images/sunscreen.jpg" class="card-img-top rounded" alt="Sunscreen">
+      </a>
+      <div class="card-body text-center">
+        <h5 class="card-title">Daily Sunscreen</h5>
+        <p class="card-text text-muted">$18</p>
+        <a href="#"
+           class="btn btn-custom buy-btn"
+           data-name="Daily Sunscreen"
+           data-price="18"
+           data-image="images/sunscreen.jpg">Buy Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product 7 -->
+  <div class="col-md-4">
+    <div class="card p-3">
+      <a href="eyecream.html">
+        <img src="images/eyecream.jpg" class="card-img-top rounded" alt="Eye Cream">
+      </a>
+      <div class="card-body text-center">
+        <h5 class="card-title">Soothing Eye Cream</h5>
+        <p class="card-text text-muted">$27</p>
+        <a href="#"
+           class="btn btn-custom buy-btn"
+           data-name="Soothing Eye Cream"
+           data-price="27"
+           data-image="images/eyecream.jpg">Buy Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product 8 -->
+  <div class="col-md-4">
+    <div class="card p-3">
+      <a href="lipbalm .html">
+        <img src="images/lipbalm.jpg" class="card-img-top rounded" alt="Lip Balm">
+      </a>
+      <div class="card-body text-center">
+        <h5 class="card-title">Moisturizing Lip Balm</h5>
+        <p class="card-text text-muted">$12</p>
+        <a href="#"
+           class="btn btn-custom buy-btn"
+           data-name="Moisturizing Lip Balm"
+           data-price="12"
+           data-image="images/lipbalm.jpg">Buy Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product 9 -->
+  <div class="col-md-4">
+    <div class="card p-3">
+      <a href="nightcream.html">
+        <img src="images/nightcream.jpg" class="card-img-top rounded" alt="Night Cream">
+      </a>
+      <div class="card-body text-center">
+        <h5 class="card-title">Nourishing Night Cream</h5>
+        <p class="card-text text-muted">$35</p>
+        <a href="#"
+           class="btn btn-custom buy-btn"
+           data-name="Nourishing Night Cream"
+           data-price="35"
+           data-image="images/nightcream.jpg">Buy Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+  </section>
+   <!-- Cart Sidebar -->
+  <!-- Cart Sidebar -->
+  <div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h5>Your Cart</h5>
+      <button id="closeCart" class="btn-close"></button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <p>Total: $<span id="cartTotal">0</span></p>
+      <!-- ✅ Updated Buy It Now button -->
+      <button id="buyNowBtn" class="btn btn-success w-100">Buy It Now</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row text-center text-md-start">
+        <div class="col-md-3 mb-4">
+          <h5>About Us</h5>
+          <p>GlowCare brings you natural skincare products made with love and care.</p>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Customer Service</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Follow Us</h5>
+          <a href="#"><i class="fab fa-facebook-f me-2"></i>Facebook</a><br>
+          <a href="#"><i class="fab fa-instagram me-2"></i>Instagram</a><br>
+          <a href="#"><i class="fab fa-twitter me-2"></i>Twitter</a><br>
+          <a href="#"><i class="fab fa-youtube me-2"></i>YouTube</a>
+        </div>
+      </div>
+      <hr>
+      <p class="text-center">&copy; 2025 GlowCare. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    
+  </script>
+  <script src="script/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</body>
+</html>

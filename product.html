@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | GlowCare</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- ✅ Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- ✅ Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+    .navbar-custom.scrolled {
+  background-color: rgba(248, 200, 220, 0.7); /* transparent effect */
+  backdrop-filter: blur(10px); /* smooth glass effect */
+}
+
+
+.navbar.transparent {
+    background-color: rgba(20, 20, 20, 0.4); 
+    backdrop-filter: blur(5px); 
+}
+    /* Heart on top of image */
+
+    .card {
+      position: relative;
+      overflow: hidden;
+    }
+    .wishlist-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      border: none;
+      background: white;
+      color: red;
+      border-radius: 50%;
+      padding: 8px;
+      transition: 0.3s;
+      z-index: 2;
+    }
+    .wishlist-btn:hover {
+      background: red;
+      color: white;
+    }
+    /* Sidebar shared style */
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -350px;
+      width: 350px;
+      height: 100%;
+      background: #fff;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+      transition: 0.3s;
+      z-index: 1050;
+      padding: 20px;
+      overflow-y: hidden;
+      
+    }
+    .cart-sidebar.active {
+      right: 0;
+    }
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      background: #f497b7;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+    .btn-pink {
+  background-color: #e75480; /* pink shade */
+  color: white;
+}
+.btn-pink:hover {
+  background-color: #d4426e; /* darker pink */
+  color: white;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+ 
+  margin-bottom: 1rem;
+}
+.cart-img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 8px;
+   width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 0.5rem;
+}
+
+.cart-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  
+  min-width: 0;   
+}
+
+.cart-info small {
+  color: #777;
+}
+
+.cart-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cart-footer {
+  border-top: 1px solid #ddd;
+  display: block;
+  padding: 1rem;
+}
+.cart-footer p {
+  margin-top: 20px;
+  margin: 10; /* remove extra spacing */
+  font-weight: 600;
+}
+
+
+
+.qty-btn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.qty-btn:hover {
+  background-color: #198754; /* Bootstrap success */
+  color: #ffffff;
+  border-color: #198754;
+}
+
+/* ===============================
+   Remove (X) Button
+================================ */
+.remove-btn {
+  width: 30px;
+  height: 30px;
+  background-color: #dc3545; /* Bootstrap danger */
+  border: none;
+  color: #ffffff;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.remove-btn:hover {
+  background-color: #b02a37;
+}
+
+
+
+
+  </style>
+</head>
+<body >
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold" href="index.html">
+      <img src="images/log-removebg-preview.png" alt="Logo" class="logo"> GlowCare
+    </a>
+
+    <!-- Toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="product.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Search -->
+      <form class="d-flex me-3">
+        <input id="searchInput" class="form-control search-bar" type="search" placeholder="Search products...">
+      </form>
+
+      <!-- Profile -->
+      <div class="dropdown me-3">
+        <a class="btn btn-profile dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+          <i class="bi bi-person-circle"></i> Profile
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item btn-signup" href="sigup.html">Sign Up</a></li>
+          <li><a class="dropdown-item btn-login" href="login.html">Login</a></li>
+        </ul>
+      </div>
+
+      <!-- Wishlist Icon -->
+      <a href="#" id="wishlistIcon" class="btn btn-outline-dark position-relative ms-2">
+        <i class="fas fa-heart"></i>
+        <span id="wishlistCount" class="position-absolute top-0 start-100 translate-middle badge bg-danger">0</span>
+      </a>
+
+      <!-- Cart -->
+      <a href="#" id="cartIcon" class="btn btn-outline-dark position-relative ms-2">
+        <i class="fas fa-shopping-basket"></i>
+        <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge bg-danger">0</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Back to Top -->
+<button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+<!-- Products Section -->
+<section class="container my-5 pt-5">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold">Our Full Collection</h2>
+    <p class="text-muted">Explore all skincare essentials</p>
+  </div>
+  <div class="row g-4">
+    
+    <!-- 9 Products from index.html -->
+    <div class="col-md-4">
+      <div class="card p-3">
+        <a href="#" class="btn btn-outline-danger wishlist-btn"><i class="fas fa-heart"></i></a>
+        <a href="hydrating.html"><img src="images/hydrating.jpg" class="card-img-top rounded" alt="Moisturizer"></a>
+        <div class="card-body text-center">
+          <h5 class="card-title">Hydrating Moisturizer</h5>
+          <p class="text-muted">$25</p>
+          <a href="#" class="btn btn-custom">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3">
+        <a href="#" class="btn btn-outline-danger wishlist-btn"><i class="fas fa-heart"></i></a>
+        <a href="serum.html"><img src="images/serum.jpg" class="card-img-top rounded" alt="Serum"></a>
+        <div class="card-body text-center">
+          <h5 class="card-title">Brightening Serum</h5>
+          <p class="text-muted">$30</p>
+          <a href="#" class="btn btn-custom">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3">
+        <a href="#" class="btn btn-outline-danger wishlist-btn"><i class="fas fa-heart"></i></a>
+        <a href="cleanser.html"><img src="images/cleanser.jpg" class="card-img-top rounded" alt="Cleanser"></a>
+        <div class="card-body text-center">
+          <h5 class="card-title">Gentle Cleanser</h5>
+          <p class="text-muted">$20</p>
+          <a href="#" class="btn btn-custom">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3">
+        <a href="#" class="btn btn-outline-danger wishlist-btn"><i class="fas fa-heart"></i></a>
+        <a href="facemask.html"><img src="images/facemask.jpg" class="card-img-top rounded" alt="Face Mask"></a>
+        <div class="card-body text-center">
+          <h5 class="card-title">Revitalizing Face Mask</h5>
+          <p class="text-muted">$22</p>
+          <a href="#" class="btn btn-custom">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3">
+        <a href="#" class="btn btn-outline-danger wishlist-btn"><i class="fas fa-heart"></i></a>
+        <a href="toner.html"><img src="images/toner.jpg" class="card-img-top rounded" alt="Toner"></a>
+        <div class="card-body text-center">
+          <h5 class="card-title">Refreshing Toner</h5>
+          <p class="text-muted">$28</p>
+          <a href="#" class="btn btn-custom">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3">
+        <a href="#" class="btn btn-outline-danger wishlist-btn"><i class="fas fa-heart"></i></a>
+        <a href="sunscreen.html"><img src="images/sunscreen.jpg" class="card-img-top rounded" alt="Sunscreen"></a>
+        <div class="card-body text-center">
+          <h5 class="card-title">Daily Sunscreen</h5>
+          <p class="text-muted">$18</p>
+          <a href="#" class="btn btn-custom">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3">
+        <a href="#" class="btn btn-outline-danger wishlist-btn"><i class="fas fa-heart"></i></a>
+        <a href="eyecream.html"><img src="images/eyecream.jpg" class="card-img-top rounded" alt="Eye Cream"></a>
+        <div class="card-body text-center">
+          <h5 class="card-title">Soothing Eye Cream</h5>
+          <p class="text-muted">$27</p>
+          <a href="#" class="btn btn-custom">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3">
+        <a href="#" class="btn btn-outline-danger wishlist-btn"><i class="fas fa-heart"></i></a>
+        <a href="lipbalm.html"><img src="images/lipbalm.jpg" class="card-img-top rounded" alt="Lip Balm"></a>
+        <div class="card-body text-center">
+          <h5 class="card-title">Moisturizing Lip Balm</h5>
+          <p class="text-muted">$12</p>
+          <a href="#" class="btn btn-custom">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3">
+        <a href="#" class="btn btn-outline-danger wishlist-btn"><i class="fas fa-heart"></i></a>
+        <a href="nightcream.html"><img src="images/nightcream.jpg" class="card-img-top rounded" alt="Night Cream"></a>
+        <div class="card-body text-center">
+          <h5 class="card-title">Nourishing Night Cream</h5>
+          <p class="text-muted">$35</p>
+          <a href="#" class="btn btn-custom">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 Extra Products -->
+    <div class="col-md-4">
+      <div class="card p-3">
+        <a href="#" class="btn btn-outline-danger wishlist-btn"><i class="fas fa-heart"></i></a>
+        <a href="body lotion.html"><img src="images/bodylotion.jpg" class="card-img-top rounded" alt="Body Lotion"></a>
+        <div class="card-body text-center">
+          <h5 class="card-title">Silky Body Lotion</h5>
+          <p class="text-muted">$26</p>
+          <a href="#" class="btn btn-custom">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3">
+        <a href="#" class="btn btn-outline-danger wishlist-btn"><i class="fas fa-heart"></i></a>
+        <a href="faceoil.html"><img src="images/faceoil.jpg" class="card-img-top rounded" alt="Face Oil"></a>
+        <div class="card-body text-center">
+          <h5 class="card-title">Radiance Face Oil</h5>
+          <p class="text-muted">$32</p>
+          <a href="#" class="btn btn-custom">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3">
+        <a href="#" class="btn btn-outline-danger wishlist-btn"><i class="fas fa-heart"></i></a>
+        <a href="scrub.html"><img src="images/scrub.jpg" class="card-img-top rounded" alt="Face Scrub"></a>
+        <div class="card-body text-center">
+          <h5 class="card-title">Exfoliating Face Scrub</h5>
+          <p class="text-muted">$19</p>
+          <a href="#" class="btn btn-custom">Buy Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cart Sidebar -->
+<!-- Cart Sidebar -->
+  <div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h5>Your Cart</h5>
+      <button id="closeCart" class="btn-close"></button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <p>Total: $<span id="cartTotal">0</span></p>
+      <!-- ✅ Updated Buy It Now button -->
+      <button id="buyNowBtn" class="btn btn-success w-100">Buy It Now</button>
+    </div>
+  </div>
+
+<!-- Wishlist Sidebar -->
+<div id="wishlistSidebar" class="cart-sidebar">
+  <div class="cart-header">
+    <h5>Your Wishlist</h5>
+    <button id="closeWishlist" class="btn-close"></button>
+  </div>
+  <div id="wishlistItems" class="cart-items"></div>
+</div>
+
+<!-- Discount Modal -->
+<div class="modal fade" id="discountModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-4">
+      <h5 class="fw-bold">🎉 Surprise Offer!</h5>
+      <p>Use code <strong id="discountCode"></strong> for extra savings!</p>
+      <button class="btn btn-pink" data-bs-dismiss="modal">Got it!</button>
+
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row text-center text-md-start">
+      <div class="col-md-3 mb-4">
+        <h5>About Us</h5>
+        <p>GlowCare brings you natural skincare products made with love and care.</p>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5>Customer Service</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5>Follow Us</h5>
+        <a href="#"><i class="fab fa-facebook-f me-2"></i>Facebook</a><br>
+        <a href="#"><i class="fab fa-instagram me-2"></i>Instagram</a><br>
+        <a href="#"><i class="fab fa-twitter me-2"></i>Twitter</a><br>
+        <a href="#"><i class="fab fa-youtube me-2"></i>YouTube</a>
+      </div>
+    </div>
+    <hr>
+    <p class="text-center">&copy; 2025 GlowCare. All rights reserved.</p>
+  </div>
+</footer>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+ 
+  <script>
+   
+  // Wishlist + Cart arrays
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Update counts (wishlist = unique count, cart = total qty)
+  function updateCounts() {
+    document.getElementById("wishlistCount").innerText = wishlist.length;
+   const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById("cartCount").innerText = totalQty;
+  }
+  updateCounts();
+
+  // Wishlist button click
+  document.querySelectorAll(".wishlist-btn").forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.preventDefault();
+      const card = btn.closest(".card");
+      const product = {
+        name: card.querySelector(".card-title").innerText,
+        image: card.querySelector("img").src,
+        price: card.querySelector("p").innerText
+      };
+      if (!wishlist.some(item => item.name === product.name)) {
+        wishlist.push(product);
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+        updateCounts();
+        renderWishlist();
+        alert(product.name + " added to wishlist ❤️");
+      } else {
+        alert(product.name + " is already in wishlist!");
+      }
+    });
+  });
+
+  // Buy Now → Add to Cart
+document.querySelectorAll(".btn-custom").forEach(btn => {
+  btn.addEventListener("click", e => {
+    e.preventDefault();
+    const card = btn.closest(".card");
+    const priceText = card.querySelector("p").innerText; // e.g. "$18"
+    const price = parseFloat(priceText.replace("$", "")); // ✅ convert to number
+
+    const product = {
+  name: card.querySelector(".card-title").innerText,
+  image: card.querySelector("img").src,
+  price: price,
+  quantity: 1
+};
+
+
+    const existing = cart.find(item => item.name === product.name);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push(product);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCounts();
+    renderCart();
+  });
+});
+
+  // Render Cart
+function renderCart() {
+  const container = document.getElementById("cartItems");
+  container.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    const div = document.createElement("div");
+    div.classList.add("cart-item");
+   div.innerHTML = `
+  <!-- Product Image -->
+  <img src="${item.image}" alt="${item.name}" class="cart-img">
+
+  <!-- Product Info -->
+  <div class="cart-info">
+    <strong>${item.name}</strong>
+    <small>$${item.price.toFixed(2)}</small>
+  </div>
+
+  <!-- Quantity + Remove -->
+  <div class="cart-actions">
+    <button class="qty-btn decrease-qty" data-index="${index}">−</button>
+    <span>${item.quantity}</span>
+    <button class="qty-btn increase-qty" data-index="${index}">+</button>
+    <button class="remove-btn remove-cart-btn" data-index="${index}">✕</button>
+  </div>
+`;
+    container.appendChild(div);
+    total += item.price * item.quantity;   // ✅ CORRECT
+
+  });
+
+  document.getElementById("cartTotal").innerText = total.toFixed(2);
+
+
+     // Remove from cart
+  document.querySelectorAll(".remove-cart-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const idx = btn.getAttribute("data-index");
+      cart.splice(idx, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCounts();
+      renderCart();
+    });
+  });
+
+  // Increase qty
+  document.querySelectorAll(".increase-qty").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const idx = btn.getAttribute("data-index");
+     cart[idx].quantity += 1;
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCounts();
+      renderCart();
+    });
+  });
+
+  // Decrease qty
+  // Decrease qty
+document.querySelectorAll(".decrease-qty").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const idx = btn.getAttribute("data-index");
+
+    if (cart[idx].quantity > 1) {   // ✅ CORRECT
+      cart[idx].quantity -= 1;
+    } else {
+      cart.splice(idx, 1);          // remove only when quantity = 1
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCounts();
+    renderCart();
+  });
+});
+
+}
+  // Render Wishlist
+  function renderWishlist() {
+    const container = document.getElementById("wishlistItems");
+    container.innerHTML = "";
+    wishlist.forEach((item, index) => {
+      const div = document.createElement("div");
+      div.classList.add("d-flex", "justify-content-between", "align-items-center", "mb-2");
+      div.innerHTML = `
+        <div>
+          <strong>${item.name}</strong><br>
+          <small>${item.price}</small>
+        </div>
+        <button class="btn btn-sm btn-danger remove-wishlist-btn" data-index="${index}">X</button>
+      `;
+      container.appendChild(div);
+    });
+
+    // Remove from wishlist
+    document.querySelectorAll(".remove-wishlist-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const idx = btn.getAttribute("data-index");
+        wishlist.splice(idx, 1);
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+        updateCounts();
+        renderWishlist();
+      });
+    });
+  }
+
+  renderCart();
+  renderWishlist();
+
+  // Sidebar open/close
+  document.getElementById("cartIcon").onclick = () => {
+    document.getElementById("cartSidebar").classList.add("active");
+  };
+  document.getElementById("closeCart").onclick = () => {
+    document.getElementById("cartSidebar").classList.remove("active");
+  };
+  document.getElementById("wishlistIcon").onclick = () => {
+    document.getElementById("wishlistSidebar").classList.add("active");
+  };
+  document.getElementById("closeWishlist").onclick = () => {
+    document.getElementById("wishlistSidebar").classList.remove("active");
+  };
+
+  // Discount Popup
+  const codes = ["GLOW10", "CARE15", "SKIN20"];
+  setTimeout(() => {
+    const randomCode = codes[Math.floor(Math.random() * codes.length)];
+    document.getElementById("discountCode").innerText = randomCode;
+    new bootstrap.Modal(document.getElementById("discountModal")).show();
+  }, 30000);
+
+  // Back to top
+  const backToTop = document.getElementById("backToTop");
+  window.addEventListener("scroll", () => {
+    backToTop.style.display = window.scrollY > 200 ? "block" : "none";
+  });
+  backToTop.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  // Navbar scroll effect
+window.addEventListener("scroll", function() {
+  const navbar = document.querySelector(".navbar");
+  if (window.scrollY > 50) {
+    navbar.classList.add("transparent"); // match your CSS class
+  } else {
+    navbar.classList.remove("transparent");
+  }
+});
+
+// Product Search Functionality
+// =============================
+
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("searchInput");
+  const productCards = document.querySelectorAll(".card");
+
+  searchInput.addEventListener("keyup", function () {
+    const filter = searchInput.value.toLowerCase();
+
+    productCards.forEach(card => {
+      const title = card.querySelector(".card-title").textContent.toLowerCase();
+
+      if (title.includes(filter)) {
+        card.parentElement.style.display = "block"; // show
+      } else {
+        card.parentElement.style.display = "none"; // hide
+      }
+    });
+  });
+});
+// ✅ Redirect to Shipping Page when Buy It Now is clicked
+// ===============================
+// Buy It Now Button Logic
+// ===============================
+const buyNowBtn = document.getElementById("buyNowBtn");
+
+buyNowBtn?.addEventListener("click", function () {
+    if (cart.length === 0) {
+        alert("Your cart is empty! Please add some products first.");
+        return;
+    }
+
+    // Cart has products → redirect to shipping page
+    window.location.href = "shipping.html";
+});
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

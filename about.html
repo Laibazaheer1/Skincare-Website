@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | GlowCare</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- ✅ Font Awesome CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    html, body {
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  padding-top: 50px; 
+}
+
+.section, .container, .row {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+    /* ✅ Hero */
+    
+    .hero {
+  position: relative;
+  height: 60vh;   /* keeps the vertical size */
+  max-width: 1200px;  /* adjust as needed */
+  margin: 15 auto;     /* center it */
+  overflow: hidden;
+  margin-bottom: 50px; 
+  padding-top: 80px;
+ 
+  padding-top: 140px;  /* Increase this until hero starts below navbar */
+}
+
+
+
+
+    
+    .hero-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+/* Floating Info Boxes */
+.hero-box {
+  font-size: 0.75rem;        /* slightly larger text */
+  position: absolute;
+  width: 125px;              /* wider box */
+  background: rgba(255, 182, 193, 0.9);
+  padding: 8px 10px;         /* more padding for breathing space */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  text-align: center;
+  line-height: 1.3;          /* smoother spacing */
+  animation: float 4s ease-in-out infinite;
+  color: #4a4a4a;
+}
+
+.hero-box h5 {
+  font-size: 0.9rem;         /* heading slightly bigger */
+  margin: 5px 0;
+}
+
+.hero-box p {
+  font-size: 0.7rem;         /* description text */
+  margin: 0;
+}
+
+.hero-box i {
+  font-size: 1.2rem;         /* icon a little bigger */
+  color: #d6336c;
+  margin-bottom: 5px;
+}
+
+
+
+
+/* Positioning */
+.box-left {
+  top: 20px;
+  left: 25px;
+  animation-delay: 0s;
+}
+
+.box-right {
+  bottom: 20px;
+  right: 25px;
+  animation-delay: 2s; /* delay for natural effect */
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* 🌿 Our Story Section */
+.our-story-section {
+  background: linear-gradient(135deg, #fff0f5, #ffe4ec); /* pastel pink gradient */
+  border-radius: 12px;
+  padding: 60px 0;
+}
+
+    .story-img {
+  width: 100%;        /* take full column width */
+  max-height: 500px;  /* increase height */
+  object-fit: cover;  /* crop nicely */
+}
+
+
+
+
+.our-story-section h2 {
+  font-size: 2.2rem;
+  color: #333;
+}
+
+.our-story-section p {
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ✅ Highlight feature boxes */
+.story-feature {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.story-feature i {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+/* Specific colors */
+.feature-natural {
+  background: #e8f5e9;   /* soft green */
+  color: #2e7d32;
+}
+
+.feature-love {
+  background: #fdecef;   /* soft pink */
+  color: #c2185b;
+}
+
+/* 🌟 Features Section */
+/* 🌟 Features Section */
+.feature-card {
+  padding: 25px;
+  border-radius: 14px;
+  color: #333;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+
+  position: relative; /* Needed for ::before positioning */
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0; /* Start hidden */
+  height: 4px; /* Line thickness */
+  background: #d6336c; /* Pink highlight */
+  transition: width 0.4s ease;
+  border-radius: 4px;
+}
+
+.feature-card:hover::before {
+  width: 100%; /* Expands across top */
+}
+
+
+/* Pastel Backgrounds */
+.feature-card:nth-child(1) { background: #e8f9f1; }  /* pastel green */
+.feature-card:nth-child(2) { background: #fde8ec; }  /* pastel pink */
+.feature-card:nth-child(3) { background: #e8f0fd; }  /* pastel blue */
+.feature-card:nth-child(4) { background: #fff6e5; }  /* pastel orange */
+.feature-card:nth-child(5) { background: #f3e8fd; }  /* pastel purple */
+.feature-card:nth-child(6) { background: #e6faff; }  /* pastel aqua */
+
+.feature-card i {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.feature-card:hover i {
+  transform: scale(1.2) rotate(5deg);
+}
+/* 🌸 Digital Experience Section */
+.digital-experience {
+  background: linear-gradient(135deg, #ffe4ec, #fff0f5); /* pastel pink gradient */
+  border-radius: 14px;
+  padding: 60px 40px;
+}
+
+.digital-experience h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #b83265; /* deep pastel pink */
+}
+
+.digital-experience p {
+  color: #555;
+  line-height: 1.7;
+}
+
+.digital-experience .badge {
+  background: #f8a5c2;  /* soft pastel pink */
+  font-size: 0.9rem;
+  padding: 8px 14px;
+  border-radius: 20px;
+}
+
+.digital-experience ul li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #444;
+}
+
+.digital-experience ul li i {
+  color: #e75480; /* pink check icons */
+  margin-right: 8px;
+}
+
+.digital-experience img {
+  width: 90%;       /* slightly bigger than container */
+  max-width: none;   /* remove limit */
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transition: transform 0.4s ease;
+  margin-left: -5%;  /* recenter if it overflows */
+}
+
+
+.digital-experience img:hover {
+  transform: scale(1.05);
+}
+/* Shop Now Button Hover */
+.digital-experience .btn-success {
+  background-color: #f8a5c2;
+  border: none;
+  padding: 12px 28px;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.digital-experience .btn-success:hover {
+  background-color: #fa6d9e;   /* darker green */
+  transform: translateY(-3px); /* slight lift */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+    /* ✅ Testimonials Carousel */
+    .testimonial-container {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .testimonial-card {
+      flex: 0 0 calc(100% / 3);
+      margin: 0 10px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .testimonial-controls {
+      margin-top: 15px;
+    }
+    /* Testimonial Avatar */
+.testimonial-avatar {
+  font-size: 50px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+
+    /* ✅ FAQ Toggle */
+    /* FAQ */
+.faq-question {
+  cursor: pointer;
+  padding: 15px;
+  background: #fdf2f8; /* pastel pink bg */
+  border: 1px solid #f8a5c2; /* pastel pink border */
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: background 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* keep arrow at right */
+  font-weight: 500;
+}
+
+.faq-question i {
+  transition: transform 0.3s ease;
+  color: #d6336c; /* pastel pink icon */
+}
+
+.faq-question.active {
+  background: #ffe4ec;  /* lighter pastel pink */
+  font-weight: bold;
+  color: #c2185b; /* deep pink */
+}
+
+.faq-question.active i {
+  transform: rotate(90deg); /* arrow rotates */
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+  padding: 0 15px;
+}
+.faq-question.active + .faq-answer {
+  padding: 10px 15px; /* add space when opened */
+}
+
+
+    /* ✅ Team Slider */
+    .team-wrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .team-card {
+      flex: 0 0 calc(100% / 3);
+      padding: 20px;
+    }
+    /* Team Card Design */
+.team-card-inner {
+  background: linear-gradient(135deg, #ffe4ec, #fff0f5); /* pastel pink gradient */
+  border-radius: 20px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.team-card-inner img {
+  width: 140px;
+  height: 140px;
+  border: 5px solid #fff;
+  object-fit: cover;
+}
+
+.team-card-inner:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  background: linear-gradient(135deg, #f8a5c2, #ffe4ec);
+}
+
+.team-card-inner h5 {
+  font-weight: bold;
+  color: #b83265;
+}
+
+.team-card-inner p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+
+    /* ✅ Buttons */
+    .carousel-btn {
+      background: #198754;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      margin: 0 5px;
+      transition: background 0.3s;
+    }
+    .carousel-btn:hover {
+      background: #146c43;
+    }
+    /* Back to Top Button */
+#backToTop {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #f497b7;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 12px 16px;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 9999; /* ✅ make it float above everything */
+}
+
+
+#backToTop:hover {
+  background-color: #d86d96;
+  transform: scale(1.1);
+}
+
+/* Default solid navbar */
+/* Default solid navbar */
+.navbar-custom {
+  background-color: #f8c8dc;   /* pastel pink */
+  border-bottom: 2px solid #f497b7;
+  padding: 10px 20px;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+/* Transparent pink when scrolling */
+.navbar-custom.scrolled {
+  background-color: rgba(155, 149, 151, 0.7); /* frosted pink */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.navbar.transparent {
+    background-color: rgba(20, 20, 20, 0.4); 
+    backdrop-filter: blur(5px); 
+}
+
+
+
+
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">
+      <img src="images/log-removebg-preview.png" alt="Logo" class="logo"> GlowCare
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="dropdown me-3">
+        <a class="btn btn-profile dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+          <i class="bi bi-person-circle"></i> Profile
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item btn-signup" href="sigup.html">Sign Up</a></li>
+          <li><a class="dropdown-item btn-login" href="login.html">Login</a></li>
+        </ul>
+      </div>
+</nav>
+
+<!-- Back to Top Button -->
+<button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+<!-- Hero Section -->
+<section class="hero container-fluid text-center position-relative p-5">
+  <img src="images/about.jpg" alt="About GlowCare" class="hero-bg">
+
+  <!-- Hero Content -->
+  <div class="hero-content position-absolute top-50 start-50 translate-middle text-white">
+    <h1>About GlowCare</h1>
+    <p>Natural skincare crafted with love and care for your glow.</p>
+  </div>
+
+  <!-- Floating Boxes -->
+  <div class="hero-box box-left">
+    <i class="fas fa-leaf"></i>
+    <h5>100% Natural</h5>
+    <p>Crafted with safe botanicals</p>
+  </div>
+
+  <div class="hero-box box-right">
+    <i class="fas fa-heart"></i>
+    <h5>Loved by Customers</h5>
+    <p>Trusted worldwide</p>
+  </div>
+</section>
+
+
+
+<!-- 🌿 Our Story Section -->
+<section class="our-story-section py-5">
+
+
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <img src="images/n.jpg" alt="GlowCare Story" class="img-fluid rounded shadow story-img" />
+
+      </div>
+      <div class="col-lg-6">
+        <h2 class="fw-bold mb-3">Our Story</h2>
+        <p>GlowCare was founded with a mission to provide natural, effective, and affordable skincare solutions. We believe that healthy, nourished skin is the foundation of true beauty. That’s why all our products are crafted using carefully selected botanicals, free from harsh chemicals.</p>
+        <p>Our journey began in 2010, and since then, we’ve been helping people embrace their natural glow with safe, eco-friendly, and cruelty-free skincare.</p>
+        <div class="row mt-4 g-3">
+  <div class="col-md-6">
+    <div class="story-feature feature-natural">
+      <i class="fas fa-leaf"></i> Natural & Pure
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="story-feature feature-love">
+      <i class="fas fa-heart"></i> Customer Love
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- 🌟 Features Section -->
+<section class="features-section py-5">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4">Why Choose GlowCare?</h2>
+    <p class="text-muted mb-5">Our commitment to quality, sustainability, and customer trust sets us apart.</p>
+    
+    <div class="row g-4">
+      <!-- Feature 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <i class="fas fa-leaf"></i>
+          <h5>Natural Ingredients</h5>
+          <p>Plant-based, eco-friendly, and cruelty-free formulas crafted with care.</p>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <i class="fas fa-heart"></i>
+          <h5>Loved by Customers</h5>
+          <p>Trusted by thousands of skincare lovers worldwide for over 15 years.</p>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <i class="fas fa-flask"></i>
+          <h5>Dermatologist Tested</h5>
+          <p>Safe, effective, and clinically proven for all skin types.</p>
+        </div>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <i class="fas fa-recycle"></i>
+          <h5>Eco-Friendly Packaging</h5>
+          <p>Committed to reducing waste with recyclable and sustainable packaging.</p>
+        </div>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <i class="fas fa-shield-alt"></i>
+          <h5>Safe & Certified</h5>
+          <p>All our products are certified, paraben-free, and toxin-free.</p>
+        </div>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <i class="fas fa-globe"></i>
+          <h5>Global Reach</h5>
+          <p>GlowCare products are loved and shipped worldwide with trust.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 🌸 Digital Experience -->
+<section class="digital-experience py-5">
+  <div class="container d-flex flex-wrap align-items-center justify-content-between">
+    
+    <!-- Left Content -->
+    <div class="col-lg-6 mb-4">
+      <span class="badge mb-2">🌿 Glow Naturally</span>
+      <h2>Revolutionize Your Skincare Routine</h2>
+      <p>GlowCare helps you achieve radiant skin through natural ingredients and science-backed formulations. Join thousands who have transformed their skincare journey with us.</p>
+      <ul class="list-unstyled">
+        <li><i class="fas fa-check-circle"></i> Premium Natural Care</li>
+        <li><i class="fas fa-check-circle"></i> Eco-Friendly & Sustainable</li>
+        <li><i class="fas fa-check-circle"></i> Visible Results</li>
+      </ul>
+      
+   
+    
+    <a href="product.html" class="btn btn-success mt-3">Shop Now</a></div>
+
+    <!-- Right Image -->
+    <div class="col-lg-6 text-center">
+      <img src="images/glow care.jpg" alt="GlowCare Products" class="img-fluid rounded shadow">
+    </div>
+
+  </div>
+</section>
+
+</section>
+
+<!-- 💬 Testimonials Carousel -->
+<section class="testimonials-section py-5 text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-4">What Our Customers Say</h2>
+    <div id="testimonial-container" class="testimonial-container">
+      
+      <div class="testimonial-card">
+        <i class="fas fa-user-circle testimonial-avatar" style="color:#fa6d9e;"></i>
+        <p>"GlowCare transformed my skin! I’ve never felt more confident."</p>
+        <h6>— Jessica</h6>
+      </div>
+      
+      <div class="testimonial-card">
+        <i class="fas fa-user-circle testimonial-avatar" style="color:#6db5fa;"></i>
+        <p>"Finally found a natural skincare brand that actually works!"</p>
+        <h6>— David</h6>
+      </div>
+      
+      <div class="testimonial-card">
+        <i class="fas fa-user-circle testimonial-avatar" style="color:#9b6dfa;"></i>
+        <p>"My skin feels fresh, hydrated, and glowing every day."</p>
+        <h6>— Amanda</h6>
+      </div>
+      
+      <div class="testimonial-card">
+        <i class="fas fa-user-circle testimonial-avatar" style="color:#6dfa94;"></i>
+        <p>"Affordable and truly effective skincare products."</p>
+        <h6>— Noor</h6>
+      </div>
+      
+      <div class="testimonial-card">
+        <i class="fas fa-user-circle testimonial-avatar" style="color:#faca6d;"></i>
+        <p>"Eco-friendly and safe for my sensitive skin."</p>
+        <h6>— Maria</h6>
+      </div>
+      
+    </div>
+
+    <div class="testimonial-controls">
+      <button id="prev" class="carousel-btn"><i class="fas fa-chevron-left"></i></button>
+      <button id="next" class="carousel-btn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+
+<!-- 📊 Stats -->
+<section class="stats-section py-5 bg-light text-center">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h2 class="fw-bold text-success">50K+</h2>
+        <p>Happy Customers</p>
+      </div>
+      <div class="col-md-4">
+        <h2 class="fw-bold text-success">100%</h2>
+        <p>Natural Products</p>
+      </div>
+      <div class="col-md-4">
+        <h2 class="fw-bold text-success">15+</h2>
+        <p>Years of Trust</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🙋 FAQ -->
+<div class="faq-item">
+  <div class="faq-question">
+    Are GlowCare products safe for sensitive skin?
+    <i class="fas fa-chevron-right"></i>
+  </div>
+  <div class="faq-answer"><p>Yes! All our products are dermatologist tested and safe for sensitive skin.</p></div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question">
+    Are your products cruelty-free?
+    <i class="fas fa-chevron-right"></i>
+  </div>
+  <div class="faq-answer"><p>Absolutely. GlowCare is 100% cruelty-free and eco-conscious.</p></div>
+</div>
+
+
+<!-- 👩 Team Slider -->
+<!-- 👩 Team Slider -->
+<section class="team-section py-5 bg-light">
+  <div class="container">
+    <h2 class="fw-bold text-center mb-5">Meet Our Team</h2>
+    <div class="d-flex justify-content-center mb-3">
+      <button id="prevBtn" class="carousel-btn"><i class="fas fa-chevron-left"></i></button>
+      <button id="nextBtn" class="carousel-btn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="overflow-hidden">
+      <div class="team-wrapper">
+        
+        <!-- Existing Members -->
+        <div class="team-card text-center">
+          <div class="team-card-inner">
+            <img src="images/p2.jpg" class="rounded-circle mb-3" alt="Founder">
+            <h5>Sarah Khan</h5>
+            <p class="text-muted">Founder & CEO</p>
+          </div>
+        </div>
+        
+        <div class="team-card text-center">
+          <div class="team-card-inner">
+            <img src="images/p3.jpg" class="rounded-circle mb-3" alt="Formulator">
+            <h5>Ayesha Malik</h5>
+            <p class="text-muted">Lead Formulator</p>
+          </div>
+        </div>
+        
+        <div class="team-card text-center">
+          <div class="team-card-inner">
+            <img src="images/p1.jpg" class="rounded-circle mb-3" alt="Marketing Head">
+            <h5>Ali Raza</h5>
+            <p class="text-muted">Marketing Head</p>
+          </div>
+        </div>
+        
+        <div class="team-card text-center">
+          <div class="team-card-inner">
+            <img src="images/p4.jpg" class="rounded-circle mb-3" alt="Designer">
+            <h5>Fatima Noor</h5>
+            <p class="text-muted">Product Designer</p>
+          </div>
+        </div>
+
+        <!-- ✅ New Members -->
+        <div class="team-card text-center">
+          <div class="team-card-inner">
+            <img src="images/p7.jpg" class="rounded-circle mb-3" alt="Content Strategist">
+            <h5>Hassan Ahmed</h5>
+            <p class="text-muted">Content Strategist</p>
+          </div>
+        </div>
+
+        <div class="team-card text-center">
+          <div class="team-card-inner">
+            <img src="images/p6.jpg" class="rounded-circle mb-3" alt="Brand Manager">
+            <h5>Sana Fatima</h5>
+            <p class="text-muted">Brand Manager</p>
+          </div>
+        </div>
+
+        <div class="team-card text-center">
+          <div class="team-card-inner">
+            <img src="images/p8.jpg" class="rounded-circle mb-3" alt="PR Manager">
+            <h5>Usman Ali</h5>
+            <p class="text-muted">PR Manager</p>
+          </div>
+        </div>
+
+        <div class="team-card text-center">
+          <div class="team-card-inner">
+            <img src="images/p5.jpg" class="rounded-circle mb-3" alt="Community Manager">
+            <h5>Maryam Iqbal</h5>
+            <p class="text-muted">Community Manager</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row text-center text-md-start">
+        <div class="col-md-3 mb-4">
+          <h5>About Us</h5>
+          <p>GlowCare brings you natural skincare products made with love and care.</p>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Customer Service</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Follow Us</h5>
+          <a href="#"><i class="fab fa-facebook-f me-2"></i>Facebook</a><br>
+          <a href="#"><i class="fab fa-instagram me-2"></i>Instagram</a><br>
+          <a href="#"><i class="fab fa-twitter me-2"></i>Twitter</a><br>
+          <a href="#"><i class="fab fa-youtube me-2"></i>YouTube</a>
+        </div>
+      </div>
+      <hr>
+      <p class="text-center">&copy; 2025 GlowCare. All rights reserved.</p>
+    </div>
+  </footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ✅ Testimonials Carousel */
+const container = document.getElementById("testimonial-container");
+const nextBtn = document.getElementById("next");
+const prevBtn = document.getElementById("prev");
+let index = 0;
+const cards = document.querySelectorAll(".testimonial-card");
+const totalCards = cards.length;
+const visibleCards = 3;
+const moveAmount = 100 / visibleCards;
+function updateCarousel() {
+    container.style.transform = `translateX(-${index * moveAmount}%)`;
+}
+function nextSlide() {
+    index++;
+    if (index > totalCards - visibleCards) index = 0;
+    updateCarousel();
+}
+function prevSlide() {
+    index--;
+    if (index < 0) index = totalCards - visibleCards;
+    updateCarousel();
+}
+nextBtn.addEventListener("click", () => { nextSlide(); resetAutoSlide(); });
+prevBtn.addEventListener("click", () => { prevSlide(); resetAutoSlide(); });
+let autoSlideInterval;
+function startAutoSlide() { autoSlideInterval = setInterval(nextSlide, 3000); }
+function resetAutoSlide() { clearInterval(autoSlideInterval); startAutoSlide(); }
+startAutoSlide();
+
+/* ✅ FAQ Toggle */
+document.querySelectorAll(".faq-question").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const answer = btn.nextElementSibling;
+    btn.classList.toggle("active");
+    if (answer.style.maxHeight) {
+      answer.style.maxHeight = null;
+    } else {
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    }
+  });
+});
+
+/* ✅ Team Slider */
+document.addEventListener('DOMContentLoaded', () => {
+  const wrapper = document.querySelector('.team-wrapper');
+  const prev = document.getElementById('prevBtn');
+  const next = document.getElementById('nextBtn');
+  const cards = document.querySelectorAll('.team-card');
+  const visible = 3, total = cards.length, pages = Math.ceil(total / visible);
+  let idx = 0;
+  const cardW = () => cards[0].offsetWidth + parseFloat(getComputedStyle(cards[0]).marginRight) + parseFloat(getComputedStyle(cards[0]).marginLeft);
+  const update = () => {
+    wrapper.style.transform = `translateX(${-idx * cardW() * visible}px)`;
+    prev.disabled = idx === 0;
+    next.disabled = idx === pages - 1;
+  };
+  next.onclick = () => idx < pages - 1 && (idx++, update());
+  prev.onclick = () => idx > 0 && (idx--, update());
+  window.onresize = update;
+  update();
+});
+
+
+
+
+// Back to Top Button
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", function() {
+  if (window.scrollY > 300) {
+    backToTop.style.display = "block";
+  } else {
+    backToTop.style.display = "none";
+  }
+});
+
+backToTop.addEventListener("click", function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+
+// Navbar Scroll Effect
+window.addEventListener("scroll", function() {
+    const navbar = document.querySelector(".navbar-custom");
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
+
+
+</script>
+</body>
+</html>

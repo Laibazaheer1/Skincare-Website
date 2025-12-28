@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping | GlowCare</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Font Awesome CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<style>
+/* Light pink background for select dropdowns */
+.select-pink option {
+  background-color: #ffe6f0;
+  color: #000;
+}
+</style>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">
+      <img src="images/log-removebg-preview.png" alt="Logo" class="logo"> GlowCare
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Search -->
+      <form class="d-flex me-3">
+        <input class="form-control search-bar" type="search" placeholder="Search products...">
+      </form>
+
+      <!-- Profile -->
+      <div class="dropdown me-3">
+        <a class="btn btn-profile dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+          <i class="bi bi-person-circle"></i> Profile
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="sigup.html">Sign Up</a></li>
+          <li><a class="dropdown-item" href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Cart -->
+    <a href="#" class="btn btn-outline-dark position-relative ms-auto" style="display:none;">
+      <i class="fas fa-shopping-basket"></i>
+      <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge bg-danger">0</span>
+    </a>
+  </div>
+</nav>
+
+<!-- Order Summary -->
+<section class="container my-5">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold">Order Summary</h2>
+    <p class="text-muted">Review your items before entering shipping details</p>
+  </div>
+
+  <div id="orderSummary" class="border rounded p-3 mb-5 bg-light"></div>
+
+  <div class="text-end fw-bold">
+    Total: $<span id="orderTotal">0</span>
+  </div>
+</section>
+
+<!-- Shipping Form -->
+<section class="container my-5">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold">Shipping Information</h2>
+    <p class="text-muted">Please fill in your details to complete your purchase</p>
+  </div>
+
+  <form id="shippingForm" class="row g-4">
+    <!-- Full Name -->
+    <div class="col-md-6">
+      <label class="form-label">Full Name</label>
+      <input type="text" name="Full Name" class="form-control" placeholder="Enter your full name" required>
+    </div>
+
+    <!-- Email -->
+    <div class="col-md-6">
+      <label class="form-label">Email</label>
+      <input type="email" name="Email" class="form-control" placeholder="Enter your email" required>
+    </div>
+
+    <!-- Phone Number -->
+    <div class="col-md-6 mb-3">
+      <label class="form-label">Phone Number</label>
+      <div class="input-group">
+        <select id="countryCode" class="form-select" style="max-width: 120px;">
+          <option value="+92">+92</option>
+          <option value="+91">+91</option>
+          <option value="+1">+1</option>
+          <option value="+44">+44</option>
+        </select>
+        <input type="tel" name="Phone" class="form-control" id="phone" placeholder="Enter phone number" required>
+      </div>
+      <small class="text-danger" id="phoneError"></small>
+    </div>
+
+    <!-- Address -->
+    <div class="col-md-12 mb-3">
+      <label class="form-label">Address</label>
+      <textarea class="form-control" name="Address" id="address" rows="3" placeholder="Street, City, State, ZIP" required></textarea>
+      <small class="text-danger" id="addressError"></small>
+    </div>
+
+    <!-- Country -->
+    <div class="col-md-6">
+      <label class="form-label">Country</label>
+      <select class="form-select select-pink" name="Country" required>
+        <option selected disabled>Choose...</option>
+        <option>Pakistan</option>
+        <option>India</option>
+        <option>Usa</option>
+        <option>Uk</option>
+      </select>
+    </div>
+
+    <!-- Payment Method -->
+    <div class="col-md-6">
+      <label class="form-label">Payment Method</label>
+      <select class="form-select select-pink" name="Payment Method" required>
+        <option selected disabled>Choose...</option>
+        <option>Cash on Delivery</option>
+        <option>Credit/Debit Card</option>
+        <option>Bank Transfer</option>
+      </select>
+    </div>
+
+    <!-- Submit -->
+    <div class="col-12 text-center">
+      <button type="submit" class="btn btn-success px-5">Confirm Order</button>
+    </div>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row text-center text-md-start">
+      <div class="col-md-3 mb-4">
+        <h5>About Us</h5>
+        <p>GlowCare brings you natural skincare products made with love and care.</p>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5>Customer Service</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5>Follow Us</h5>
+        <a href="#"><i class="fab fa-facebook-f me-2"></i>Facebook</a><br>
+        <a href="#"><i class="fab fa-instagram me-2"></i>Instagram</a><br>
+        <a href="#"><i class="fab fa-twitter me-2"></i>Twitter</a><br>
+        <a href="#"><i class="fab fa-youtube me-2"></i>YouTube</a>
+      </div>
+    </div>
+    <hr>
+    <p class="text-center">&copy; 2025 GlowCare. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<script>
+// Cart & Order Summary
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+document.getElementById("cartCount").innerText = cart.length;
+
+let summaryDiv = document.getElementById("orderSummary");
+let total = 0;
+
+if (cart.length === 0) {
+    summaryDiv.innerHTML = "<p>Your cart is empty.</p>";
+} else {
+    let html = "<ul class='list-group'>";
+    cart.forEach(item => {
+        html += `
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>${item.name} (x${item.quantity || 1})</span>
+            <span>$${item.price * (item.quantity || 1)}</span>
+        </li>`;
+        total += item.price * (item.quantity || 1);
+    });
+    html += "</ul>";
+    summaryDiv.innerHTML = html;
+}
+document.getElementById("orderTotal").innerText = total;
+
+// Shipping Form Validation
+const shippingForm = document.getElementById('shippingForm');
+const phoneInput = document.getElementById('phone');
+const countryCode = document.getElementById('countryCode');
+const addressInput = document.getElementById('address');
+const phoneError = document.getElementById('phoneError');
+const addressError = document.getElementById('addressError');
+
+// Phone regex patterns
+const phonePatterns = {
+    "+92": /^3\d{9}$/,
+    "+91": /^[6-9]\d{9}$/,
+    "+1": /^[2-9]\d{9}$/,
+    "+44": /^7\d{9}$/
+};
+
+// Real-time Phone Validation
+phoneInput.addEventListener('input', validatePhone);
+countryCode.addEventListener('change', validatePhone);
+
+function validatePhone() {
+    const code = countryCode.value;
+    const value = phoneInput.value.trim();
+    const pattern = phonePatterns[code];
+    if (!pattern.test(value)) {
+        phoneError.textContent = `Invalid phone number for ${code}.`;
+        phoneInput.classList.add('is-invalid');
+        phoneInput.classList.remove('is-valid');
+    } else {
+        phoneError.textContent = "";
+        phoneInput.classList.remove('is-invalid');
+        phoneInput.classList.add('is-valid');
+    }
+}
+
+// Address Validation
+addressInput.addEventListener('input', () => {
+    const value = addressInput.value.trim();
+    const pattern = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9\s,.-]{10,}$/;
+    if (!pattern.test(value)) {
+        addressError.textContent = "Please enter a valid address (letters and numbers, min 10 characters).";
+        addressInput.classList.add('is-invalid');
+        addressInput.classList.remove('is-valid');
+    } else {
+        addressError.textContent = "";
+        addressInput.classList.remove('is-invalid');
+        addressInput.classList.add('is-valid');
+    }
+});
+
+// Form Submit
+shippingForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const code = countryCode.value;
+    const phone = phoneInput.value.trim();
+    const address = addressInput.value.trim();
+    const phonePattern = phonePatterns[code];
+    const addressPattern = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9\s,.-]{10,}$/;
+
+    if (!phonePattern.test(phone)) {
+        phoneError.textContent = `Invalid phone number for ${code}.`;
+        phoneInput.focus();
+        return false;
+    }
+
+    if (!addressPattern.test(address)) {
+        addressError.textContent = "Please enter a valid address (letters and numbers, min 10 characters).";
+        addressInput.focus();
+        return false;
+    }
+
+    // Collect form data using name attributes
+    const formData = {};
+    const inputs = shippingForm.querySelectorAll('input, textarea, select');
+    inputs.forEach(input => {
+        if(input.name) formData[input.name] = input.value;
+    });
+
+    // Add full phone
+    formData['Phone Number'] = `${code}${phone}`;
+
+    // Save to localStorage
+    localStorage.setItem('shippingFormData', JSON.stringify(formData));
+
+   
+
+    // Redirect to thank-you page
+    window.location.href = 'thankyouu.html';
+});
+</script>
+</body>
+</html>

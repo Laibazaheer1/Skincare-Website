@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | GlowCare</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    /* =========================
+       GLOBAL THEME (FROM YOUR SITE)
+    ========================== */
+    body {
+      background-color: #fff5f7;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Header / Logo */
+    .thankyou-header {
+      background-color: #f8c8dc;
+      padding: 15px 0;
+      border-bottom: 2px solid #f497b7;
+    }
+
+    .thankyou-header h2 {
+      color: #fff;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    /* Main Card */
+    .thankyou-card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0px 8px 25px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+
+    .thankyou-card h1 {
+      color: #d86d96;
+      font-weight: 700;
+    }
+
+    .thankyou-card p {
+      color: #555;
+    }
+
+    /* Order Details */
+    #orderDetails .list-group-item {
+      border: none;
+      border-bottom: 1px solid #f1f1f1;
+      background: transparent;
+      font-size: 15px;
+    }
+
+    #orderDetails strong {
+      color: #d86d96;
+      text-transform: capitalize;
+    }
+
+    /* Map */
+    iframe {
+      border-radius: 15px;
+      margin-top: 10px;
+    }
+
+    /* Button (if needed later) */
+    .btn-custom {
+      background-color: #f497b7;
+      color: white;
+      border-radius: 30px;
+      padding: 10px 25px;
+      transition: 0.3s;
+    }
+
+    .btn-custom:hover {
+      background-color: #e56b91;
+    }
+   .logo { width: 60px; height: 60px; object-fit: contain; margin-right: 10px; background: none; border: 0; box-shadow: none; }
+#orderSummary .list-group-item {
+  font-size: 14px;
+}
+
+.summary-arrow {
+  font-size: 18px;      /* slightly bigger */
+  font-weight: 700;    /* BOLD */
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when expanded */
+[aria-expanded="true"] .summary-arrow {
+  transform: rotate(180deg);
+}
+
+
+/* Rotate arrow when expanded */
+[aria-expanded="true"] .summary-arrow {
+  transform: rotate(180deg);
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div class="thankyou-header text-center">
+    <h2>GlowCare</h2>
+    <img src="images/log-removebg-preview.png"alt="Logo" class="logo">
+  </div>
+  <!-- Order Confirmation Section -->
+<div class="container my-4">
+  <div class="card p-3 shadow-sm border-0">
+
+    <!-- Order Summary Toggle -->
+   <div class="d-flex justify-content-between align-items-center"
+     data-bs-toggle="collapse"
+     data-bs-target="#orderSummary"
+     aria-expanded="false"
+     style="cursor:pointer;">
+
+  <!-- LEFT: Order summary + arrow -->
+  <div class="d-flex align-items-center gap-1">
+    <h6 class="mb-0 text-primary">Order summary</h6>
+    <span class="summary-arrow">⌄</span>
+  </div>
+
+  <!-- RIGHT: Total only -->
+  <strong id="totalBill">Rs 0.00</strong>
+</div>
+
+
+    <!-- Collapsible Summary -->
+    <div class="collapse mt-3" id="orderSummary">
+      <div id="orderItems"></div>
+    </div>
+
+    <hr>
+
+    <!-- Thank You Message -->
+    <div class="d-flex align-items-start gap-3">
+      <div class="text-primary fs-3">✔</div>
+      <div>
+        <h5 class="mb-1">Thank you, <span id="customerName"></span>!</h5>
+        <p class="mb-0 text-muted">Your order is confirmed</p>
+        <small class="text-muted">You’ll receive a confirmation email soon</small>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+  <!-- Content -->
+  <section class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <div class="thankyou-card text-center">
+          <h1>Thank You for Your Order! </h1>
+          <p class="lead">We have received your order and will process it soon.</p>
+
+          <!-- Order Details -->
+          <div id="orderDetails" class="mt-4"></div>
+
+          <!-- Map -->
+        <iframe
+  id="mapFrame"
+  width="100%"
+  height="280"
+  style="border:0;"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+   
+
+ // =========================
+// SAFE GOOGLE MAP LOAD
+// =========================
+(function loadShippingMap() {
+  const data = JSON.parse(localStorage.getItem("shippingFormData")) || {};
+
+  let address = "";
+  let country = "";
+
+  // Detect address & country safely
+  for (let key in data) {
+    if (key.toLowerCase().includes("address")) {
+      address = data[key];
+    }
+    if (key.toLowerCase().includes("country")) {
+      country = data[key];
+    }
+  }
+
+  // Only load map if address exists
+  if (address && document.getElementById("mapFrame")) {
+    const fullAddress = encodeURIComponent(address + " " + country);
+    const mapURL = `https://www.google.com/maps?q=${fullAddress}&output=embed`;
+    document.getElementById("mapFrame").src = mapURL;
+  } else {
+    // Hide map section if no address
+    document.getElementById("mapFrame").parentElement.style.display = "none";
+  }
+})();
+
+
+  // =========================
+  // GET DATA FROM STORAGE
+  // =========================
+  const orderData = JSON.parse(localStorage.getItem("shippingFormData")) || {};
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // =========================
+  // SHOW CUSTOMER NAME (AUTO DETECT)
+  // =========================
+  let customerName = "";
+
+  for (let key in orderData) {
+    if (key.toLowerCase().includes("name")) {
+      customerName = orderData[key];
+      break;
+    }
+  }
+
+  document.getElementById("customerName").innerText =
+    customerName ? customerName : "Customer";
+
+  // =========================
+  // SHOW ORDER DETAILS (FORM)
+  // =========================
+  let detailsHTML = '<ul class="list-group text-start">';
+  for (let key in orderData) {
+    detailsHTML += `
+      <li class="list-group-item">
+        <strong>${key}:</strong> ${orderData[key]}
+      </li>`;
+  }
+  detailsHTML += "</ul>";
+  document.getElementById("orderDetails").innerHTML = detailsHTML;
+
+  // =========================
+  // ORDER SUMMARY (IMAGE + QTY + PRICE)
+  // =========================
+ // =========================
+// ORDER SUMMARY (IMAGE + QTY + PRICE)
+// =========================
+let total = 0;
+let itemsHTML = '<ul class="list-group">';
+
+cartItems.forEach(item => {
+  const qty = item.quantity || 1;
+  const price = item.price || 0;
+  const image = item.image || "";
+
+  const itemTotal = price * qty;
+  total += itemTotal;
+
+  itemsHTML += `
+    <li class="list-group-item d-flex align-items-center gap-3">
+      <img src="${image}" width="50" height="50" style="object-fit:cover;border-radius:8px">
+      <div class="flex-grow-1">
+        <div class="fw-semibold">${item.name}</div>
+        <small class="text-muted">Qty: ${qty}</small>
+      </div>
+      <strong>Rs ${itemTotal}$</strong>
+    </li>`;
+});
+
+itemsHTML += `
+  <li class="list-group-item d-flex justify-content-between fw-bold">
+    <span>Total</span>
+    <span>Rs ${total}$</span>
+  </li>
+</ul>`;
+
+document.getElementById("orderItems").innerHTML = itemsHTML;
+document.getElementById("totalBill").innerText = `Rs ${total}$`;
+
+ 
+  const toggle = document.querySelector('[data-bs-target="#orderSummary"]');
+  const collapse = document.getElementById("orderSummary");
+
+  collapse.addEventListener("shown.bs.collapse", () => {
+    toggle.setAttribute("aria-expanded", "true");
+  });
+
+  collapse.addEventListener("hidden.bs.collapse", () => {
+    toggle.setAttribute("aria-expanded", "false");
+  });
+
+// Clear cart after showing the summary
+localStorage.removeItem('cart');
+
+</script> 
+
+</body>
+</html>
