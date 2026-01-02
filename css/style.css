@@ -167,10 +167,13 @@ body {
   color: #333;
   font-weight: 700;
 }
+
 .hero p {
   font-size: 1.2rem;
   color: #555;
 }
+
+
 .btn-custom {
   background-color: #f497b7;
   color: white;
@@ -178,9 +181,11 @@ body {
   padding: 10px 25px;
   transition: 0.3s;
 }
+
 .btn-custom:hover {
   background-color: #e56b91;
 }
+
 /* Products */
 .card {
   border: none;
@@ -247,7 +252,6 @@ body {
   padding-top: 0 !important;
    border-top: 1px solid #ddd;
 }
-
 .cart-footer p {
   margin-top: 30px;
   margin: 30;
@@ -259,7 +263,7 @@ body {
   align-items: center;
   gap: 12px;
   padding: 10px 0;
-  border-bottom: 1px solid #eee; 
+  border-bottom: 1px solid #eee;
 }
 .cart-img {
   width: 50px !important;
@@ -302,7 +306,6 @@ body {
   line-height: 1;
   transition: all 0.2s ease;
 }
-
 .qty-btn:hover {
   background-color: #198754; 
   color: #ffffff;
@@ -320,7 +323,6 @@ body {
   cursor: pointer;
   transition: background 0.2s ease;
 }
-
 .remove-btn:hover {
   background-color: #b02a37;
 }
@@ -331,12 +333,10 @@ body {
   padding: 50px 0 20px;
   margin-top: 40px;
 }
-
 .footer h5 {
   font-weight: bold;
   margin-bottom: 15px;
 }
-
 .footer a {
   color: #fff;
   text-decoration: none;
