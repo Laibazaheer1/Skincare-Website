@@ -20,13 +20,11 @@
     .product-price { font-size: 1.5rem; margin: 15px 0; }
     .rating i { color: gold; }
 
-    /* Bigger carousel images */
     .product-page .carousel img {
       max-height: 420px;
       object-fit: cover;
     }
 
-    /* Styled inputs */
     .form-select, .form-control {
       max-width: 160px;
       padding: 6px 12px;
@@ -40,7 +38,6 @@
       border-color: #f06292;
     }
 
-    /* Cart Sidebar */
     .cart-sidebar {
       position: fixed;
       top: 0;
@@ -84,8 +81,6 @@
       background-color: rgba(248, 200, 220, 0.7);
       backdrop-filter: blur(10px);
     }
-    /* Thumbnail images below carousel */
-/* Force left side to stack vertically */
 .left-images {
   display: flex;
   flex-direction: column;
@@ -102,16 +97,9 @@
   line-height: 1;
   cursor: pointer;
 }
-
-
-
-
-
 .cart-item .text-end {
-  min-width: 160px; /* increased */
+  min-width: 160px; 
 }
-
-/* Fix the row spacing */
 .cart-item {
   display: flex;
   justify-content: space-between;
@@ -126,7 +114,7 @@
   font-size: 14px;
 }
 .cart-item .text-end {
-  min-width: 120px; /* enough space for + - buttons */
+  min-width: 120px;
 }
 
 .btn-close {
@@ -138,7 +126,6 @@
   opacity: 1;
   float: right;
 }
-/* Left side: image + name */
 .cart-left {
   display: flex;
   align-items: center;
@@ -166,9 +153,6 @@
   align-items: center;
   gap: 6px;
 }
-/* Thumbnails must stay below carousel */
-
-
   </style>
 </head>
 <body>
@@ -273,7 +257,7 @@
     const buyNowBtn = document.getElementById("buyNowBtn");
 
 buyNowBtn.addEventListener("click", () => {
-  // Redirect to shipping page
+  
   window.location.href = "shipping.html";
 });
 
@@ -329,7 +313,7 @@ function decreaseQty(index) {
   if (cart[index].quantity > 1) {
     cart[index].quantity--;
   } else {
-    cart.splice(index, 1); // remove if quantity reaches 0
+    cart.splice(index, 1); 
   }
   renderCart();
 }
