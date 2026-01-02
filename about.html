@@ -6,12 +6,12 @@
   <title>About Us | GlowCare</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <!-- ✅ Font Awesome CDN -->
+  <!--  Font Awesome CDN -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
   <style>
     html, body {
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden; 
   padding-top: 50px; 
 }
 
@@ -19,69 +19,57 @@
   max-width: 100%;
   overflow-x: hidden;
 }
-    /* ✅ Hero */
-    
-    .hero {
+ /*  Hero */
+.hero {
   position: relative;
-  height: 60vh;   /* keeps the vertical size */
-  max-width: 1200px;  /* adjust as needed */
-  margin: 15 auto;     /* center it */
+  height: 60vh;   
+  max-width: 1200px;  
+  margin: 15 auto;    
   overflow: hidden;
   margin-bottom: 50px; 
   padding-top: 80px;
- 
-  padding-top: 140px;  /* Increase this until hero starts below navbar */
+ padding-top: 140px;  
+}
+.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+}
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
 }
 
-
-
-
-    
-    .hero-bg {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      
-    }
-    .hero-content h1 {
-      font-size: 3rem;
-      font-weight: bold;
-    }
-/* Floating Info Boxes */
 .hero-box {
-  font-size: 0.75rem;        /* slightly larger text */
+  font-size: 0.75rem;        
   position: absolute;
-  width: 125px;              /* wider box */
+  width: 125px;              
   background: rgba(255, 182, 193, 0.9);
-  padding: 8px 10px;         /* more padding for breathing space */
+  padding: 8px 10px;        
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.12);
   text-align: center;
-  line-height: 1.3;          /* smoother spacing */
+  line-height: 1.3;          
   animation: float 4s ease-in-out infinite;
   color: #4a4a4a;
 }
 
 .hero-box h5 {
-  font-size: 0.9rem;         /* heading slightly bigger */
+  font-size: 0.9rem;        
   margin: 5px 0;
 }
 
 .hero-box p {
-  font-size: 0.7rem;         /* description text */
+  font-size: 0.7rem;         
   margin: 0;
 }
 
 .hero-box i {
-  font-size: 1.2rem;         /* icon a little bigger */
+  font-size: 1.2rem;         
   color: #d6336c;
   margin-bottom: 5px;
 }
-
-
-
-
-/* Positioning */
 .box-left {
   top: 20px;
   left: 25px;
@@ -91,43 +79,32 @@
 .box-right {
   bottom: 20px;
   right: 25px;
-  animation-delay: 2s; /* delay for natural effect */
+  animation-delay: 2s; 
 }
 
-/* Floating Animation */
 @keyframes float {
   0%   { transform: translateY(0px); }
   50%  { transform: translateY(-8px); }
   100% { transform: translateY(0px); }
 }
-
-/* 🌿 Our Story Section */
 .our-story-section {
-  background: linear-gradient(135deg, #fff0f5, #ffe4ec); /* pastel pink gradient */
+  background: linear-gradient(135deg, #fff0f5, #ffe4ec); 
   border-radius: 12px;
   padding: 60px 0;
 }
-
-    .story-img {
-  width: 100%;        /* take full column width */
-  max-height: 500px;  /* increase height */
-  object-fit: cover;  /* crop nicely */
+.story-img {
+  width: 100%;        
+  max-height: 500px; 
+  object-fit: cover;  
 }
-
-
-
-
 .our-story-section h2 {
   font-size: 2.2rem;
   color: #333;
 }
-
 .our-story-section p {
   color: #555;
   line-height: 1.7;
 }
-
-/* ✅ Highlight feature boxes */
 .story-feature {
   display: flex;
   align-items: center;
@@ -141,19 +118,15 @@
   margin-right: 10px;
 }
 
-/* Specific colors */
 .feature-natural {
-  background: #e8f5e9;   /* soft green */
+  background: #e8f5e9;  
   color: #2e7d32;
 }
 
 .feature-love {
-  background: #fdecef;   /* soft pink */
+  background: #fdecef;   
   color: #c2185b;
 }
-
-/* 🌟 Features Section */
-/* 🌟 Features Section */
 .feature-card {
   padding: 25px;
   border-radius: 14px;
@@ -162,7 +135,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
 
-  position: relative; /* Needed for ::before positioning */
+  position: relative; 
   overflow: hidden;
 }
 
@@ -171,25 +144,22 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 0; /* Start hidden */
-  height: 4px; /* Line thickness */
-  background: #d6336c; /* Pink highlight */
+  width: 0; 
+  height: 4px; 
+  background: #d6336c; 
   transition: width 0.4s ease;
   border-radius: 4px;
 }
 
 .feature-card:hover::before {
-  width: 100%; /* Expands across top */
+  width: 100%; 
 }
-
-
-/* Pastel Backgrounds */
-.feature-card:nth-child(1) { background: #e8f9f1; }  /* pastel green */
-.feature-card:nth-child(2) { background: #fde8ec; }  /* pastel pink */
-.feature-card:nth-child(3) { background: #e8f0fd; }  /* pastel blue */
-.feature-card:nth-child(4) { background: #fff6e5; }  /* pastel orange */
-.feature-card:nth-child(5) { background: #f3e8fd; }  /* pastel purple */
-.feature-card:nth-child(6) { background: #e6faff; }  /* pastel aqua */
+.feature-card:nth-child(1) { background: #e8f9f1; } 
+.feature-card:nth-child(2) { background: #fde8ec; }  
+.feature-card:nth-child(3) { background: #e8f0fd; }  
+.feature-card:nth-child(4) { background: #fff6e5; }  
+.feature-card:nth-child(5) { background: #f3e8fd; }  
+.feature-card:nth-child(6) { background: #e6faff; }  
 
 .feature-card i {
   font-size: 2.5rem;
@@ -205,9 +175,9 @@
 .feature-card:hover i {
   transform: scale(1.2) rotate(5deg);
 }
-/* 🌸 Digital Experience Section */
+/*  Digital Experience Section */
 .digital-experience {
-  background: linear-gradient(135deg, #ffe4ec, #fff0f5); /* pastel pink gradient */
+  background: linear-gradient(135deg, #ffe4ec, #fff0f5); 
   border-radius: 14px;
   padding: 60px 40px;
 }
@@ -215,7 +185,7 @@
 .digital-experience h2 {
   font-size: 2.2rem;
   font-weight: bold;
-  color: #b83265; /* deep pastel pink */
+  color: #b83265; 
 }
 
 .digital-experience p {
@@ -224,7 +194,7 @@
 }
 
 .digital-experience .badge {
-  background: #f8a5c2;  /* soft pastel pink */
+  background: #f8a5c2;  
   font-size: 0.9rem;
   padding: 8px 14px;
   border-radius: 20px;
@@ -237,24 +207,21 @@
 }
 
 .digital-experience ul li i {
-  color: #e75480; /* pink check icons */
+  color: #e75480; 
   margin-right: 8px;
 }
 
 .digital-experience img {
-  width: 90%;       /* slightly bigger than container */
-  max-width: none;   /* remove limit */
+  width: 90%;      
+  max-width: none;  
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);
   transition: transform 0.4s ease;
-  margin-left: -5%;  /* recenter if it overflows */
+  margin-left: -5%;  
 }
-
-
 .digital-experience img:hover {
   transform: scale(1.05);
 }
-/* Shop Now Button Hover */
 .digital-experience .btn-success {
   background-color: #f8a5c2;
   border: none;
@@ -265,69 +232,59 @@
 }
 
 .digital-experience .btn-success:hover {
-  background-color: #fa6d9e;   /* darker green */
-  transform: translateY(-3px); /* slight lift */
+  background-color: #fa6d9e;   
+  transform: translateY(-3px); 
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
-
-
-
-
-
-
-    /* ✅ Testimonials Carousel */
-    .testimonial-container {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-    .testimonial-card {
-      flex: 0 0 calc(100% / 3);
-      margin: 0 10px;
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .testimonial-controls {
-      margin-top: 15px;
-    }
-    /* Testimonial Avatar */
+.testimonial-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.testimonial-card {
+  flex: 0 0 calc(100% / 3);
+  margin: 0 10px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.testimonial-controls {
+  margin-top: 15px;
+}
+   
 .testimonial-avatar {
   font-size: 50px;
   margin-bottom: 12px;
   display: block;
 }
-
-
-    /* ✅ FAQ Toggle */
     /* FAQ */
 .faq-question {
   cursor: pointer;
   padding: 15px;
-  background: #fdf2f8; /* pastel pink bg */
-  border: 1px solid #f8a5c2; /* pastel pink border */
+  background: #fdf2f8; 
+  border: 1px solid #f8a5c2; 
   border-radius: 8px;
   margin-bottom: 10px;
   transition: background 0.3s, color 0.3s;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* keep arrow at right */
+  justify-content: space-between; 
   font-weight: 500;
 }
 
 .faq-question i {
   transition: transform 0.3s ease;
-  color: #d6336c; /* pastel pink icon */
+  color: #d6336c; 
 }
 
 .faq-question.active {
-  background: #ffe4ec;  /* lighter pastel pink */
+  background: #ffe4ec;  
   font-weight: bold;
-  color: #c2185b; /* deep pink */
+  color: #c2185b; 
 }
 
 .faq-question.active i {
-  transform: rotate(90deg); /* arrow rotates */
+  transform: rotate(90deg); 
 }
 
 .faq-answer {
@@ -337,22 +294,19 @@
   padding: 0 15px;
 }
 .faq-question.active + .faq-answer {
-  padding: 10px 15px; /* add space when opened */
+  padding: 10px 15px; 
 }
-
-
-    /* ✅ Team Slider */
-    .team-wrapper {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-    .team-card {
-      flex: 0 0 calc(100% / 3);
-      padding: 20px;
-    }
-    /* Team Card Design */
+.team-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.team-card {
+  flex: 0 0 calc(100% / 3);
+  padding: 20px;
+}
+  /* Team Card Design */
 .team-card-inner {
-  background: linear-gradient(135deg, #ffe4ec, #fff0f5); /* pastel pink gradient */
+  background: linear-gradient(135deg, #ffe4ec, #fff0f5); 
   border-radius: 20px;
   padding: 25px;
   transition: all 0.3s ease;
@@ -382,21 +336,19 @@
   color: #555;
 }
 
-
-    /* ✅ Buttons */
-    .carousel-btn {
-      background: #198754;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 50%;
-      margin: 0 5px;
-      transition: background 0.3s;
-    }
-    .carousel-btn:hover {
-      background: #146c43;
-    }
-    /* Back to Top Button */
+.carousel-btn {
+  background: #198754;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  margin: 0 5px;
+  transition: background 0.3s;
+}
+.carousel-btn:hover {
+  background: #146c43;
+}
+ /* Back to Top Button */
 #backToTop {
   position: fixed;
   bottom: 25px;
@@ -411,19 +363,14 @@
   display: none;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  z-index: 9999; /* ✅ make it float above everything */
+  z-index: 9999; 
 }
-
-
 #backToTop:hover {
   background-color: #d86d96;
   transform: scale(1.1);
 }
-
-/* Default solid navbar */
-/* Default solid navbar */
 .navbar-custom {
-  background-color: #f8c8dc;   /* pastel pink */
+  background-color: #f8c8dc;   
   border-bottom: 2px solid #f497b7;
   padding: 10px 20px;
   color: #fff;
@@ -433,10 +380,8 @@
   z-index: 1000;
   transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
 }
-
-/* Transparent pink when scrolling */
 .navbar-custom.scrolled {
-  background-color: rgba(155, 149, 151, 0.7); /* frosted pink */
+  background-color: rgba(155, 149, 151, 0.7); 
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -444,10 +389,6 @@
     background-color: rgba(20, 20, 20, 0.4); 
     backdrop-filter: blur(5px); 
 }
-
-
-
-
   </style>
 </head>
 <body>
@@ -508,10 +449,7 @@
     <p>Trusted worldwide</p>
   </div>
 </section>
-
-
-
-<!-- 🌿 Our Story Section -->
+<!--  Our Story Section -->
 <section class="our-story-section py-5">
 
 
@@ -540,8 +478,7 @@
     </div>
   </div>
 </section>
-
-<!-- 🌟 Features Section -->
+<!--  Features Section -->
 <section class="features-section py-5">
   <div class="container text-center">
     <h2 class="fw-bold mb-4">Why Choose GlowCare?</h2>
@@ -604,9 +541,7 @@
     </div>
   </div>
 </section>
-
-
-<!-- 🌸 Digital Experience -->
+<!--  Digital Experience -->
 <section class="digital-experience py-5">
   <div class="container d-flex flex-wrap align-items-center justify-content-between">
     
@@ -620,9 +555,6 @@
         <li><i class="fas fa-check-circle"></i> Eco-Friendly & Sustainable</li>
         <li><i class="fas fa-check-circle"></i> Visible Results</li>
       </ul>
-      
-   
-    
     <a href="product.html" class="btn btn-success mt-3">Shop Now</a></div>
 
     <!-- Right Image -->
@@ -632,10 +564,8 @@
 
   </div>
 </section>
-
 </section>
-
-<!-- 💬 Testimonials Carousel -->
+<!--  Testimonials Carousel -->
 <section class="testimonials-section py-5 text-center">
   <div class="container">
     <h2 class="fw-bold mb-4">What Our Customers Say</h2>
@@ -679,9 +609,7 @@
     </div>
   </div>
 </section>
-
-
-<!-- 📊 Stats -->
+<!--  Stats -->
 <section class="stats-section py-5 bg-light text-center">
   <div class="container">
     <div class="row g-4">
@@ -700,8 +628,7 @@
     </div>
   </div>
 </section>
-
-<!-- 🙋 FAQ -->
+<!--  FAQ -->
 <div class="faq-item">
   <div class="faq-question">
     Are GlowCare products safe for sensitive skin?
@@ -717,10 +644,7 @@
   </div>
   <div class="faq-answer"><p>Absolutely. GlowCare is 100% cruelty-free and eco-conscious.</p></div>
 </div>
-
-
-<!-- 👩 Team Slider -->
-<!-- 👩 Team Slider -->
+<!--  Team Slider -->
 <section class="team-section py-5 bg-light">
   <div class="container">
     <h2 class="fw-bold text-center mb-5">Meet Our Team</h2>
@@ -764,7 +688,7 @@
           </div>
         </div>
 
-        <!-- ✅ New Members -->
+        <!--  New Members -->
         <div class="team-card text-center">
           <div class="team-card-inner">
             <img src="images/p7.jpg" class="rounded-circle mb-3" alt="Content Strategist">
@@ -846,7 +770,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-/* ✅ Testimonials Carousel */
+/* Testimonials Carousel */
 const container = document.getElementById("testimonial-container");
 const nextBtn = document.getElementById("next");
 const prevBtn = document.getElementById("prev");
@@ -875,7 +799,7 @@ function startAutoSlide() { autoSlideInterval = setInterval(nextSlide, 3000); }
 function resetAutoSlide() { clearInterval(autoSlideInterval); startAutoSlide(); }
 startAutoSlide();
 
-/* ✅ FAQ Toggle */
+/*  FAQ Toggle */
 document.querySelectorAll(".faq-question").forEach(btn => {
   btn.addEventListener("click", () => {
     const answer = btn.nextElementSibling;
@@ -888,7 +812,7 @@ document.querySelectorAll(".faq-question").forEach(btn => {
   });
 });
 
-/* ✅ Team Slider */
+/*  Team Slider */
 document.addEventListener('DOMContentLoaded', () => {
   const wrapper = document.querySelector('.team-wrapper');
   const prev = document.getElementById('prevBtn');
@@ -907,10 +831,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.onresize = update;
   update();
 });
-
-
-
-
 // Back to Top Button
 const backToTop = document.getElementById("backToTop");
 
@@ -928,8 +848,6 @@ backToTop.addEventListener("click", function() {
     behavior: "smooth"
   });
 });
-
-
 // Navbar Scroll Effect
 window.addEventListener("scroll", function() {
     const navbar = document.querySelector(".navbar-custom");
@@ -939,7 +857,6 @@ window.addEventListener("scroll", function() {
       navbar.classList.remove("scrolled");
     }
   });
-
 
 </script>
 </body>
