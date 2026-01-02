@@ -111,7 +111,6 @@
   font-size: 14px;
 }
 
-/* Cart item layout */
 .cart-item {
   display: flex;
   justify-content: space-between;
@@ -149,7 +148,6 @@
   gap: 6px;
 }
 
-/* Remove button */
 .remove-btn {
   background-color: red;
   
@@ -260,8 +258,6 @@
   </footer>
 
   <script>
-   // ===== Cart Logic =====
-    
   // ===== Cart Logic =====
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -330,7 +326,6 @@ function removeFromCart(index) {
     const image = document.querySelector(".carousel-item.active img").src;
     const quantity = parseInt(document.querySelector('input[type="number"]').value);
 
-    // Check if product already in cart
     const existingIndex = cart.findIndex(item => item.name === name);
     if (existingIndex !== -1) {
       cart[existingIndex].quantity += quantity;
@@ -339,7 +334,7 @@ function removeFromCart(index) {
     }
 
     renderCart();
-    cartSidebar.classList.add("active"); // open cart automatically
+    cartSidebar.classList.add("active"); 
   });
 
   cartIcon.addEventListener("click", () => {
@@ -350,7 +345,6 @@ function removeFromCart(index) {
     cartSidebar.classList.remove("active");
   });
 
-  // Render cart on page load
   renderCart();
 
     window.addEventListener("scroll", function() {
@@ -364,7 +358,6 @@ function removeFromCart(index) {
     const buyNowBtn = document.getElementById("buyNowBtn");
 
 buyNowBtn.addEventListener("click", () => {
-  // Redirect to shipping page
   window.location.href = "shipping.html";
 });
 
