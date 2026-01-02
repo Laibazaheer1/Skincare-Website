@@ -1,6 +1,4 @@
-// ===============================
 // Navbar scroll transparency effect
-// ===============================
 window.addEventListener("scroll", function () {
   const navbar = document.querySelector(".navbar");
 
@@ -11,27 +9,15 @@ window.addEventListener("scroll", function () {
     navbar.classList.remove("transparent");
   }
 });
-//repfresh
- 
-  
-
-
-// ===============================
 // Back To Top Button Logic
-// ===============================
 const backToTop = document.getElementById("backToTop");
-
 window.addEventListener("scroll", function () {
   backToTop.style.display = window.scrollY > 300 ? "block" : "none";
 });
-
 backToTop.addEventListener("click", function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
-
-// ===============================
 // Product Search Functionality
-// ===============================
 document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.getElementById("searchInput");
   const productCards = document.querySelectorAll(".card");
@@ -45,23 +31,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
-// ===============================
 // Persistent Cart Logic (LocalStorage)
-// ===============================
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-// Cart Elements
 const cartIcon = document.getElementById("cartIcon");
 const cartSidebar = document.getElementById("cartSidebar");
 const closeCart = document.getElementById("closeCart");
 const cartItems = document.getElementById("cartItems");
 const cartTotal = document.getElementById("cartTotal");
 const cartCount = document.getElementById("cartCount");
-
-// ===============================
 // Render Cart Items
-// ===============================
 function renderCart() {
   cartItems.innerHTML = "";
   let total = 0;
@@ -94,15 +72,11 @@ function renderCart() {
     `;
   });
 
-  // Update totals and save cart
   cartTotal.innerText = total.toFixed(2);
   cartCount.innerText = count;
   localStorage.setItem("cart", JSON.stringify(cart));
 }
-
-// ===============================
 // Change Quantity (+ / − buttons)
-// ===============================
 function changeQuantity(index, change) {
   cart[index].quantity += change;
 
@@ -113,24 +87,15 @@ function changeQuantity(index, change) {
 
   renderCart();
 }
-
-// ===============================
 // Remove Item from Cart
-// ===============================
 function removeFromCart(index) {
   cart.splice(index, 1);
   renderCart();
 }
-
-// ===============================
 // Toggle Cart Sidebar
-// ===============================
 cartIcon?.addEventListener("click", () => cartSidebar.classList.add("active"));
 closeCart?.addEventListener("click", () => cartSidebar.classList.remove("active"));
-
-// ===============================
 // Add to Cart (Buy Now buttons - Home Page)
-// ===============================
 document.querySelectorAll(".buy-btn").forEach(btn => {
   btn.addEventListener("click", e => {
     e.preventDefault();
@@ -151,10 +116,7 @@ document.querySelectorAll(".buy-btn").forEach(btn => {
     cartSidebar.classList.add("active");
   });
 });
-
-// ===============================
 // Typing Effect (Hero Section)
-// ===============================
 document.addEventListener("DOMContentLoaded", () => {
   const typingText = document.getElementById("typingText");
   const messages = [
@@ -187,15 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
   type();
 });
 
-// ===============================
-// Redirect to Shipping Page
-// ===============================
-// ===============================
 // Buy It Now Button Logic
-// ===============================
-// ===============================
-// Buy It Now Button Logic
-// ===============================
 const buyNowBtn = document.getElementById("buyNowBtn");
 
 buyNowBtn?.addEventListener("click", function () {
@@ -204,10 +158,7 @@ buyNowBtn?.addEventListener("click", function () {
         return;
     }
 
-    // Cart has products → redirect to shipping page
     window.location.href = "shipping.html";
 });
 
-
-// Load cart on page refresh
 renderCart();
