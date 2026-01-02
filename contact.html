@@ -59,7 +59,6 @@
     }
     .contact-right button:hover { background: #d86d96; }
 
-    /* Popup */
     .popup {
       position: fixed; top: 20px; right: 20px;
       background: #28a745; color: #fff;
@@ -67,7 +66,6 @@
       display: none; z-index: 1000;
     }
 
-    /* Chat & Back to Top use your pink palette */
     #chatIcon {
       position: fixed; bottom: 90px; right: 25px;
       background: #f497b7; color: #fff;
@@ -101,10 +99,9 @@
       padding: 10px 14px;
     }
     #chatForm button:hover { background: #d86d96; }
-    /* ✅ Transparent Navbar Effect on Scroll */
-/* Default solid navbar */
+  
 .navbar-custom {
-  background-color: #f8c8dc;   /* pastel pink */
+  background-color: #f8c8dc;  
   border-bottom: 2px solid #f497b7;
   padding: 10px 20px;
   color: #fff;
@@ -115,9 +112,8 @@
   transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
 }
 
-/* Transparent pink when scrolling */
 .navbar-custom.scrolled {
-  background-color: rgba(155, 149, 151, 0.7); /* frosted pink */
+  background-color: rgba(155, 149, 151, 0.7); 
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -125,13 +121,11 @@
     background-color: rgba(20, 20, 20, 0.4); 
     backdrop-filter: blur(5px); 
 }
-
-
   </style>
 </head>
 <body>
 
-<!-- ✅ Navbar (unchanged, same as index) -->
+<!--  Navbar (unchanged, same as index) -->
 <nav class="navbar navbar-expand-lg navbar-custom">
   <div class="container">
     <a class="navbar-brand fw-bold" href="index.html">
@@ -225,7 +219,7 @@
   </form>
 </div>
 
-<!-- ✅ Footer (unchanged, same as index) -->
+<!--  Footer (unchanged, same as index) -->
 <footer class="footer">
     <div class="container">
       <div class="row text-center text-md-start">
@@ -267,7 +261,7 @@
 
 <script>
    
-/* ✅ Navbar scroll effect */
+/*  Navbar scroll effect */
 window.addEventListener("scroll", () => {
   const navbar = document.querySelector(".navbar-custom");
   if (window.scrollY > 50) {
@@ -294,13 +288,13 @@ const chatForm = document.getElementById("chatForm");
 const chatInput = document.getElementById("chatInput");
 const chatMessages = document.getElementById("chatMessages");
 
-// ✅ Toggle chat box
+//  Toggle chat box
 chatIcon.addEventListener("click", () => {
   chatBox.style.display = chatBox.style.display === "block" ? "none" : "block";
 });
 chatClose.addEventListener("click", () => (chatBox.style.display = "none"));
 
-// ✅ Helper: Show messages
+//  Helper: Show messages
 function showMessage(text, sender = "bot") {
   const msg = document.createElement("div");
   msg.innerHTML = text;
@@ -312,7 +306,7 @@ function showMessage(text, sender = "bot") {
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-// ✅ Typing effect
+//  Typing effect
 function showTyping(callback) {
   const typing = document.createElement("div");
   typing.textContent = "Bot is typing...";
@@ -327,7 +321,7 @@ function showTyping(callback) {
   }, 1000);
 }
 
-// ✅ Chat handling
+//  Chat handling
 chatForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const text = chatInput.value.trim();
@@ -349,7 +343,7 @@ chatForm.addEventListener("submit", (e) => {
     ];
   }
 
-  // ✅ Skincare FAQs
+  //  Skincare FAQs
   else if (lower.includes("dry skin")) {
     replies = [
       "💧 Try our <a href='products.html#hydrating-moisturizer' target='_blank'>Hydrating Moisturizer</a> for deep hydration!",
@@ -384,7 +378,7 @@ chatForm.addEventListener("submit", (e) => {
     ];
   }
 
-  // ✅ Store / Policy
+  // Store / Policy
   else if (lower.includes("price") || lower.includes("cost")) {
     replies = ["💲 You can check prices on our <a href='products.html'>Products page</a>."];
   } else if (lower.includes("shipping") || lower.includes("delivery")) {
@@ -406,7 +400,7 @@ chatForm.addEventListener("submit", (e) => {
     replies = ["💕 Tell me your skin type (dry, oily, sensitive) and I’ll suggest products!"];
   }
 
-  // ✅ Show replies with typing effect
+  //  Show replies with typing effect
   let delay = 0;
   replies.forEach((r) => {
     delay += 1200;
@@ -415,9 +409,6 @@ chatForm.addEventListener("submit", (e) => {
     }, delay);
   });
 });
-
-
 </script>
-
 </body>
 </html>
