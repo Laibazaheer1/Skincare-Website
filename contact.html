@@ -121,11 +121,66 @@
     background-color: rgba(20, 20, 20, 0.4); 
     backdrop-filter: blur(5px); 
 }
+/*RESPONSIVE FIX*/
+
+/* Tablet & Mobile */
+@media (max-width: 992px) {
+  .contact-wrapper {
+    flex-direction: column;
+    margin: 20px;
+  }
+  .contact-left,
+  .contact-right {
+    width: 100%;
+  }
+  header {
+    padding: 40px 15px;
+  }
+  header h1 {
+    font-size: 28px;
+  }
+}
+/* Mobile */
+@media (max-width: 768px) {
+  body {
+    padding-top: 80px;
+  }
+  .contact-wrapper {
+    margin: 15px;
+  }
+  .contact-left,
+  .contact-right {
+    padding: 25px 20px;
+  }
+  header h1 {
+    font-size: 24px;
+  }
+  header p {
+    font-size: 14px;
+  }
+  #chatBox {
+    width: 90%;
+    right: 5%;
+    bottom: 120px;
+  }
+  #chatIcon {
+    right: 15px;
+    bottom: 70px;
+  }
+}
+/* Small Mobile */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 22px;
+  } .contact-left h2,
+  .contact-right h2 {
+    font-size: 20px;
+  }.contact-right input,
+  .contact-right button {
+    font-size: 14px;}}
   </style>
 </head>
 <body>
-
-<!--  Navbar (unchanged, same as index) -->
 <nav class="navbar navbar-expand-lg navbar-custom">
   <div class="container">
     <a class="navbar-brand fw-bold" href="index.html">
@@ -335,7 +390,7 @@ chatForm.addEventListener("submit", (e) => {
   let replies = ["Thanks! Our skincare team will respond soon."];
   const lower = text.toLowerCase();
 
-  // ✅ Greetings
+  //  Greetings
   if (["hi", "hello", "hey"].some((g) => lower.includes(g))) {
     replies = [
       "👋 Hello! Welcome to GlowCare Skincare.",
